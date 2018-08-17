@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TestScript : MonoBehaviour
 {
+    [ReadOnly] private int Test;
+
     private void Start()
     {
 
