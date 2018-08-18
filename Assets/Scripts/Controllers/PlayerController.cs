@@ -7,6 +7,12 @@ public class PlayerController : BaseController {
     MovementComponent movementComponent;
     Camera playerCamera;
 
+    #region CONTROLS
+
+    
+
+    #endregion  
+
     private void Awake()
     {
         this.movementComponent = this.gameObject.AddComponent<MovementComponent>();
@@ -24,4 +30,12 @@ public class PlayerController : BaseController {
             throw new System.Exception("There is no Camera Component on the 'Camera' object.");
         }
     }
+
+
+    private void Update()
+    {
+        Input.GetKey()
+    }
+
+
 }
