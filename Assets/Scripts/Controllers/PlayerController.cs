@@ -34,7 +34,15 @@ public class PlayerController : BaseController {
 
     private void Update()
     {
-        Input.GetKey()
+        if(Input.GetKey(DefaultMovementKeyBindings.Down))
+        {
+            this.movementComponent.MoveDown();
+        }
+
+        if (Input.GetKey(DefaultMovementKeyBindings.Down))
+        {
+            this.movementComponent.MoveDown();
+        }
     }
 
 

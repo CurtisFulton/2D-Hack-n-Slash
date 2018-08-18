@@ -14,10 +14,10 @@ public class MovementComponent : MonoBehaviour {
 
     const float DefaultMovementSpeed = 1;
 
-    public MovementComponent MoveUp(float? speedDelta) => this.Move(MovementDirection.Up, speedDelta);
-    public MovementComponent MoveDown(float? speedDelta) => this.Move(MovementDirection.Down, speedDelta);
-    public MovementComponent MoveRight(float? speedDelta) => this.Move(MovementDirection.Right, speedDelta);
-    public MovementComponent MoveLeft(float? speedDelta) => this.Move(MovementDirection.Left, speedDelta);
+    public MovementComponent MoveUp(float? speedDelta = null) => this.Move(MovementDirection.Up, speedDelta);
+    public MovementComponent MoveDown(float? speedDelta = null) => this.Move(MovementDirection.Down, speedDelta);
+    public MovementComponent MoveRight(float? speedDelta = null) => this.Move(MovementDirection.Right, speedDelta);
+    public MovementComponent MoveLeft(float? speedDelta = null) => this.Move(MovementDirection.Left, speedDelta);
 
     private MovementComponent Move(MovementDirection direction, float? speedDelta)
     {
