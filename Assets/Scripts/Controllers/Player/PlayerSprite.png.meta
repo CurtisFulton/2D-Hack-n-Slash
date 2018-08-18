@@ -1,19 +1,22 @@
 fileFormatVersion: 2
-guid: b62a8e74a325e4493956501c30341010
+guid: 7b85015f892a54343ab022ea772cbbd4
 TextureImporter:
   fileIDToRecycleName:
-    21300000: hero_0
-    21300002: hero_1
-    21300004: hero_2
-    21300006: hero_3
-    21300008: hero_4
-    21300010: hero_5
-    21300012: hero_6
-    21300014: hero_7
-    21300016: hero_8
-    21300018: hero_9
-    21300020: hero_10
-    21300022: hero_11
+    21300000: WalkRight_0
+    21300002: WalkRight_1
+    21300004: WalkRight_2
+    21300006: WalkLeft_0
+    21300008: WalkLeft_1
+    21300010: WalkLeft_2
+    21300012: WalkUp_0
+    21300014: WalkUp_1
+    21300016: WalkUp_2
+    21300018: WalkDown_0
+    21300020: WalkDown_1
+    21300022: WalkDown_2
+    21300024: KnockedOut
+    21300026: Suprised
+    21300028: Tired
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -43,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -53,7 +56,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 0
+  spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -75,7 +78,7 @@ TextureImporter:
     maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -86,7 +89,7 @@ TextureImporter:
     maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -96,13 +99,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hero_0
+      name: WalkRight_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 48
-        width: 16
-        height: 16
+        x: 2
+        y: 68
+        width: 13
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -110,18 +113,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec5bf71cb36b05e49b5b45d819a5717a
+      spriteID: f4f1a19d19f3b7b4b81a80f541d9f4d5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_1
+      name: WalkRight_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 48
-        width: 16
+        x: 18
+        y: 68
+        width: 13
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -130,19 +133,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2d5ff43d68819a47b3fddad9c42f695
+      spriteID: 73ff481dfa7a5e24b971b7c191f244f8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_2
+      name: WalkRight_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 48
-        width: 16
-        height: 16
+        x: 34
+        y: 68
+        width: 13
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,19 +153,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b55146da41984b446ae8499d10b1d4b2
+      spriteID: ecbca54c70b22d2428fe8f711942738e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_3
+      name: WalkLeft_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 16
-        height: 16
+        x: 1
+        y: 51
+        width: 13
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,18 +173,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d06aeb528b842d34f9436b00efbd959d
+      spriteID: c55a2d9ac7c2e15469a7ab5d4994de33
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_4
+      name: WalkLeft_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 32
-        width: 16
+        x: 17
+        y: 51
+        width: 13
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -190,19 +193,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e8907867f92cf444b30b79b5f01021a
+      spriteID: aeb9cc6da91b7bd4cb6ae1c5b7661c66
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_5
+      name: WalkLeft_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
-        width: 16
-        height: 16
+        x: 33
+        y: 51
+        width: 13
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,19 +213,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9f95785e539e6b409146c617000c5e2
+      spriteID: d0f2a7cc7412dc9479f0443f27caa9d9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_6
+      name: WalkUp_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
-        width: 16
-        height: 16
+        x: 2
+        y: 34
+        width: 12
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -230,19 +233,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a861d4672fcc684c9615462ee61b052
+      spriteID: 03c93f14f56febe479a77ff285ecdfed
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_7
+      name: WalkUp_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
+        x: 18
+        y: 35
+        width: 12
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,19 +253,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c8f82ad30adbd44b81258935d78fee0
+      spriteID: 62185cbb04b355546954d24fbb043da1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_8
+      name: WalkUp_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 16
+        x: 34
+        y: 34
+        width: 12
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -270,19 +273,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6580faa68f941a40993ad7d7b280173
+      spriteID: 63a8f4e9906382d49844b41b01ddcb64
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_9
+      name: WalkDown_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 16
+        x: 2
+        y: 18
+        width: 12
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,19 +293,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d935d2496da1e248be83955f99c8b3f
+      spriteID: 86a5de23ebfe04343b5dbfdb933fba8a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_10
+      name: WalkDown_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
+        x: 18
+        y: 19
+        width: 11
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -310,18 +313,38 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0b9ac5720e80a348a8d9394f50e55ec
+      spriteID: 0a5755a25a948c04b9b9770fcebefb80
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_11
+      name: WalkDown_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
+        x: 34
+        y: 18
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 460d274f1d2aada4589f8557b68c71cf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnockedOut
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 13
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -330,7 +353,47 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a6661cd6f48237489986164cfaf709c
+      spriteID: 015465326e6fee94793054d2b3dd79b3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Suprised
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 1
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da1af58002a7ec347a8f2355a3be201e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tired
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 2
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7c428008c9bd334791de56079c9e5af
       vertices: []
       indices: 
       edges: []
@@ -338,7 +401,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ed7d0995706de334d8f592fe1e7b5535
     vertices: []
     indices: 
     edges: []

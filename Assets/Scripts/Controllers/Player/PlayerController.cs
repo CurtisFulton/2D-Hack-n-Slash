@@ -78,8 +78,12 @@ public class PlayerController : BaseController {
             this.movementComponent.MoveLeft();
         }
 
-        this.playerMobAnimator.SetFloat(nameof(velX), velX);
-        this.playerMobAnimator.SetFloat(nameof(velY), velY);
+        if(velX != 0 || velY != 0)
+        {
+            this.playerMobAnimator.SetFloat(nameof(velX), velX);
+            this.playerMobAnimator.SetFloat(nameof(velY), velY);
+        }
+        
     }
 
 
