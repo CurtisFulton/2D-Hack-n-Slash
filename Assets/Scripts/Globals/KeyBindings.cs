@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class DefaultMovementKeyBindings
+public class MovementKeyBindings
 {
     public const KeyCode Up = KeyCode.W;
     public const KeyCode Down = KeyCode.S;

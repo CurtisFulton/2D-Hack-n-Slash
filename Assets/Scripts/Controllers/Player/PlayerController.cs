@@ -34,22 +34,22 @@ public class PlayerController : BaseController {
 
     private void Update()
     {
-        if (Input.GetKey(DefaultMovementKeyBindings.Down))
+        if (Input.GetKey(MovementKeyBindings.Up))
+        {
+            this.movementComponent.MoveUp();
+        }
+
+        if (Input.GetKey(MovementKeyBindings.Down))
         {
             this.movementComponent.MoveDown();
         }
 
-        if (Input.GetKey(DefaultMovementKeyBindings.Down))
-        {
-            this.movementComponent.MoveDown();
-        }
-
-        if (Input.GetKey(DefaultMovementKeyBindings.Right))
+        if (Input.GetKey(MovementKeyBindings.Right))
         {
             this.movementComponent.MoveRight();
         }
 
-        if(Input.GetKey(DefaultMovementKeyBindings.Left))
+        if(Input.GetKey(MovementKeyBindings.Left))
         {
             this.movementComponent.MoveLeft();
         }
