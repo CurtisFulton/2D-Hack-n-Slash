@@ -35,4 +35,15 @@ public static class MonobehaviourExtension
     }
 
     #endregion
+
+    public static EventComponent GetEventComponent(this MonoBehaviour monoBehaviour)
+    {
+        // Check the current Game Object for the event component
+        var eventComponent = monoBehaviour.GetComponent<EventComponent>();
+        if (eventComponent != null)
+            return eventComponent;
+
+        // Find an Event Component in the parent(s).
+        return monoBehaviour.GetComponentInParent<EventComponent>();
+    }
 }
