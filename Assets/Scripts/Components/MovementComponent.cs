@@ -33,10 +33,10 @@ public class MovementComponent : MonoBehaviour {
                 positionDelta += new Vector3(0, -1, 0);
                 break;
             case MovementDirection.Right:
-                positionDelta += new Vector3(1, 0, 0);
+                positionDelta += new Vector3(-1, 0, 0);
                 break;
             case MovementDirection.Left:
-                positionDelta += new Vector3(-1, 0, 0);
+                positionDelta += new Vector3(1, 0, 0);
                 break;
         }
 
