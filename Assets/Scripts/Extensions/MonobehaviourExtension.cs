@@ -12,8 +12,7 @@ public static class MonobehaviourExtension
     {
         Event<T>.CreateEvent(new MonobehaviourMetadata(monoBehaviour));
     }
-
-
+    
     /// <summary>
     /// Sends an event of type <typeparamref name="T"/> to any listeners.
     /// </summary>
@@ -26,6 +25,14 @@ public static class MonobehaviourExtension
     public static void CreateEvent<T>(this MonoBehaviour monoBehaviour, EventComponent target, T eventArgs)
     {
         Event<T>.CreateEvent(new MonobehaviourMetadata(monoBehaviour), target, eventArgs);
+    }
+
+    /// <summary>
+    /// Sends an event of type <typeparamref name="T"/> to any listeners. Creates a default data object to send.
+    /// </summary>
+    public static void CreateEvent<T>(this MonoBehaviour monoBehaviour, EventComponent target) where T : Event<T>
+    {
+        Event<T>.CreateEvent(new MonobehaviourMetadata(monoBehaviour), target, default(T));
     }
 
     /// <summary>
