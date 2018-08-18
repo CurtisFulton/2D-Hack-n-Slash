@@ -17,9 +17,9 @@ public class TestScript : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
             if (hit.collider != null) {
-                var rb = hit.rigidbody;
-                var eventComponent = rb.GetComponent<EventComponent>();
-                eventComponent.CreateEvent<TestInstanceEvent>(new { test = "test" });
+                Rigidbody2D rb = hit.rigidbody;
+                EventComponent eventComponent = rb.GetComponent<EventComponent>();
+                this.CreateEvent<TestInstanceEvent>(eventComponent, new TestInstanceEvent());
             }
         }
     }

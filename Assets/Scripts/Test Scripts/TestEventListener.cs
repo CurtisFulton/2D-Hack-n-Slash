@@ -10,13 +10,16 @@ public class TestEventListener : MonoBehaviour {
     {
         this.eventComponent = this.GetEventComponent();
 
-        this.eventComponent.RegisterListener<TestInstanceEvent>(args => {
-            Debug.Log("I'm testing the instance event! Event called on " + this.transform.parent.name);
-        });
+        TestInstanceEvent.RegisterListener(int.MaxValue, this.eventComponent, this.TestCallback);
+    }
+
+    private void TestCallback(TestInstanceEvent args)
+    {
+        Debug.Log("Event was created for " + this.eventComponent.name);
     }
 }
 
-public class TestInstanceEvent : InstanceEvent
+public class TestInstanceEvent : Event<TestInstanceEvent>
 {
 
 }

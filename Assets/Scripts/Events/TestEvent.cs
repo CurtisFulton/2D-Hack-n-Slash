@@ -1,6 +1,6 @@
 using System;
 
-public class TestEvent : GlobalEvent<TestEvent>
+public class TestEvent : Event<TestEvent>
 {
     public int Test { get; set; }
 
