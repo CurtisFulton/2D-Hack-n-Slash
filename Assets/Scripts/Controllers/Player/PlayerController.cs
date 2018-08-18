@@ -6,6 +6,8 @@ public class PlayerController : BaseController {
 
     MovementComponent movementComponent;
     Camera playerCamera;
+    Animator playerMobAnimator;
+    GameObject playerMob;
 
     #region CONTROLS
 
@@ -29,30 +31,55 @@ public class PlayerController : BaseController {
         {
             throw new System.Exception("There is no Camera Component on the 'Camera' object.");
         }
+
+        this.playerMob = this.transform.Find("Mob").gameObject;
+        if(this.playerMob == null)
+        {
+            throw new System.Exception("The PlayerController must have a Mob GameObject in its children");
+        }
+
+        this.playerMobAnimator = this.playerMob.GetComponent<Animator>();
     }
 
 
     private void Update()
     {
+        this.playerMobAnimator.SetBool("isWalkingDown", false);
+        this.playerMobAnimator.SetBool("isWalkingUp", false);
+        this.playerMobAnimator.SetBool("isWalkingLeft", false);
+        this.playerMobAnimator.SetBool("isWalkingRight", false);
+
+        float velX = 0;
+        float velY = 0;
         if (Input.GetKey(MovementKeyBindings.Up))
         {
+            velY = 1;
             this.movementComponent.MoveUp();
         }
 
         if (Input.GetKey(MovementKeyBindings.Down))
         {
+            velY = -1;
+
             this.movementComponent.MoveDown();
+            this.playerMobAnimator.SetBool("isWalkingDown", true);
         }
 
         if (Input.GetKey(MovementKeyBindings.Right))
         {
+            velX = 1;
+
             this.movementComponent.MoveRight();
         }
 
         if(Input.GetKey(MovementKeyBindings.Left))
         {
+            velX = -1;
             this.movementComponent.MoveLeft();
         }
+
+        this.playerMobAnimator.SetFloat(nameof(velX), velX);
+        this.playerMobAnimator.SetFloat(nameof(velY), velY);
     }
 
 
