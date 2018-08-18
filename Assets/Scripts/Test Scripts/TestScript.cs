@@ -13,8 +13,14 @@ public class TestScript : MonoBehaviour
     
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            this.CreateEvent(new TestEvent { Test = 1 });
+        if (Input.GetMouseButtonDown(0)) {
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+
+            if (hit.collider != null) {
+                Rigidbody2D rb = hit.rigidbody;
+                EventComponent eventComponent = rb.GetComponent<EventComponent>();
+                this.CreateEvent<TestInstanceEvent>(eventComponent, new TestInstanceEvent());
+            }
         }
     }
 }
