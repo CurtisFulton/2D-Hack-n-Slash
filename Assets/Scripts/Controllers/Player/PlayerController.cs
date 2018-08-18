@@ -2,22 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : BaseController {
+public class PlayerController : MobController {
 
-    MovementComponent movementComponent;
     Camera playerCamera;
-    Animator playerMobAnimator;
-    GameObject playerMob;
 
-    #region CONTROLS
-
-    
-
-    #endregion  
-
-    private void Awake()
+    protected override void Awake()
     {
-        this.movementComponent = this.gameObject.AddComponent<MovementComponent>();
+        base.Awake();
 
         Transform cameraTransform = this.transform.Find("Camera");
         if(cameraTransform == null)
@@ -26,64 +17,75 @@ public class PlayerController : BaseController {
         }
 
         this.playerCamera = cameraTransform.GetComponent<Camera>();
-
         if (this.playerCamera == null)
         {
             throw new System.Exception("There is no Camera Component on the 'Camera' object.");
         }
-
-        this.playerMob = this.transform.Find("Mob").gameObject;
-        if(this.playerMob == null)
-        {
-            throw new System.Exception("The PlayerController must have a Mob GameObject in its children");
-        }
-
-        this.playerMobAnimator = this.playerMob.GetComponent<Animator>();
     }
 
 
     private void Update()
     {
-        this.playerMobAnimator.SetBool("isWalkingDown", false);
-        this.playerMobAnimator.SetBool("isWalkingUp", false);
-        this.playerMobAnimator.SetBool("isWalkingLeft", false);
-        this.playerMobAnimator.SetBool("isWalkingRight", false);
-
-        float velX = 0;
-        float velY = 0;
-        if (Input.GetKey(MovementKeyBindings.Up))
-        {
-            velY = 1;
-            this.movementComponent.MoveUp();
-        }
-
-        if (Input.GetKey(MovementKeyBindings.Down))
-        {
-            velY = -1;
-
-            this.movementComponent.MoveDown();
-            this.playerMobAnimator.SetBool("isWalkingDown", true);
-        }
-
-        if (Input.GetKey(MovementKeyBindings.Right))
-        {
-            velX = 1;
-
-            this.movementComponent.MoveRight();
-        }
-
-        if(Input.GetKey(MovementKeyBindings.Left))
-        {
-            velX = -1;
-            this.movementComponent.MoveLeft();
-        }
-
-        if(velX != 0 || velY != 0)
-        {
-            this.playerMobAnimator.SetFloat(nameof(velX), velX);
-            this.playerMobAnimator.SetFloat(nameof(velY), velY);
-        }
+        this.UpdateMovement();
         
+    }
+
+    private void UpdateMovement()
+    {
+        float
+            movementXDelta = 0, 
+            movementYDelta = 0;
+
+        try
+        {
+            if (!Input.anyKey) return;
+
+            if (Input.GetKey(MovementKeyBindings.Up))
+            {
+                movementYDelta = 1;
+                this.MovementComponent.MoveUp();
+            }
+
+            if (Input.GetKey(MovementKeyBindings.Down))
+            {
+                movementYDelta = -1;
+
+                this.MovementComponent.MoveDown();
+            }
+
+            if (Input.GetKey(MovementKeyBindings.Right))
+            {
+                movementXDelta = 1;
+
+                this.MovementComponent.MoveRight();
+            }
+
+            if (Input.GetKey(MovementKeyBindings.Left))
+            {
+                movementXDelta = -1;
+                this.MovementComponent.MoveLeft();
+            }
+        } finally
+        {
+            if (movementXDelta != 0 || movementYDelta != 0)
+            {
+                this.SetSpriteDirection(new Vector3(movementXDelta, movementYDelta));
+                this.SpriteAnimator.SetBool("isWalking", true);
+
+                if (Input.GetKeyDown(CombatKeyBindings.Lunge))
+                {
+                    // lunge forward in the direction  your facing
+                    Vector3 currentDir = this.spriteDirection;
+                    currentDir.Scale(new Vector3(5, 5));
+
+                    this.MovementComponent.MoveTo(this.transform.position + currentDir, 0.5f);
+                }
+            }
+            else
+            {
+                this.SpriteAnimator.SetBool("isWalking", false);
+            }
+        }
     }
 
 

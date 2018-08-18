@@ -13,3 +13,7 @@ public class MovementKeyBindings
     public const KeyCode Right = KeyCode.D;
 }
 
+public class CombatKeyBindings
+{
+    public const KeyCode Lunge = KeyCode.Space;
+}
