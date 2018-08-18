@@ -20,20 +20,15 @@ public abstract class Event<T>
     /// Adds a listener to <typeparamref name="T"/> as a global event. Defaults to the lowest possible priority.
     /// </summary>
     /// <param name="callback">Function to call when the event is fired.</param>
-    public static void RegisterListener(EventCallback callback) => RegisterListener(int.MaxValue, callback);
-
+    public static void RegisterListener(EventCallback callback) => RegisterListener(int.MaxValue, null, callback);
     /// <summary>
     /// Adds a listener to <typeparamref name="T"/> as a global event. 
     /// </summary>
     /// <param name="priority">Priority of the listener. A lower value means the callback will be called earlier.</param>
     /// <param name="callback">Function to call when the event is fired.</param>
     public static void RegisterListener(int priority, EventCallback callback) => RegisterListener(priority, null, callback);
-
-    /// <summary>
-    /// Adds a listener to <typeparamref name="T"/>. 
-    /// </summary>
-    /// <param name="priority">Priority of the listener. A lower value means the callback will be called earlier.</param>
-    /// <param name="callback">Function to call when the event is fired.</param>
+    public static void RegisterListener(EventComponent target, EventCallback callback) => RegisterListener(int.MaxValue, target, callback);
+    
     public static void RegisterListener(int priority, EventComponent target, EventCallback callback)
     {
         if (callback == null) {
@@ -124,7 +119,26 @@ public abstract class Event<T>
 
     private static void RemoveInstanceListener(int priority, EventComponent target, EventCallback callback)
     {
-        // TODO: actually do this yo
+        SortedList<int, List<EventCallback>> instance;
+
+        // See if we we have any events registered to this target already
+        if (InstanceListeners.TryGetValue(target, out instance)) {
+            List<EventCallback> listeners;
+            if (instance.TryGetValue(priority, out listeners)) {
+                listeners.Remove(callback);
+
+                // Remove this priority if there are no more listeners
+                if (listeners == null || listeners.Count == 0) {
+                    GlobalListeners.RemoveAt(priority);
+                }
+            } else {
+                // Only log as a warning as this isn't technically an error, just something to keep an eye on as it shouldn't happen.
+                Debug.LogWarning($"Trying to remove a callback from priority {priority}, which does not exist for {GenericTypeName}.");
+            }
+        } else {
+            // Only log as a warning as this isn't technically an error, just something to keep an eye on as it shouldn't happen.
+            Debug.LogWarning($"Trying to remove a callback from the instance {target.name} but there are no listeners for it");
+        }
     }
 
     #endregion
@@ -206,6 +220,7 @@ public abstract class Event<T>
     private static void LogError(string error, bool withStackTrace = false)
     {
         // Probably not needed. Unity includes a stack trace in the log
+        // Might override unity logging so it doesn't have the stack trace by default
         if (withStackTrace)
             error += Environment.NewLine + StackTraceUtility.ExtractStackTrace();
 
